@@ -14,3 +14,14 @@ f) Once you're done customizing the body, click on Create action.
 g) Click Continue, customize your Applet Title and click Finish. Your applet should be live now.   
 4. Create a new button in LB - Add Commands - Send to Extension - IFTTT event. Paste your IFTTT key and event name. Value 1, value 2 and value 3 is what you want to parse once you trigger the event. This way you can let your viewers easily control your Philips Hue Lights and parse variables such as brightness, color, etc.   
 5. Yellow notification message "IFTTT event has been fired" means IFTTT received your request.   
+
+
+
+
+**How to install an extension:**
+1. Download the .lbe extension file
+2. Click on Install Extension in your LioranBoard Receiver
+3. Select the extension file you downloaded 
+4. Select your default Transmitter you are using. Make 100% sure it is the correct one. 
+5. Refresh your Transmitter or close and reopen Lioranboard Receiver. 
+6. Most extensions include a premade deck with buttons. If you do not see one, create a new button, add "Send to Extensions" command and select the extension you just installed. If you can only see the extension name with no input fields, it means it was not installed correctly. Repeat steps above. 
