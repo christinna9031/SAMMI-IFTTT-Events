@@ -27,4 +27,5 @@ if (((data).search("Congratulations")) !== -1) {
     }
   
   });
+}
 [insert_over]
