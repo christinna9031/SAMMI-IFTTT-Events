@@ -1,0 +1,30 @@
+[extension_name]
+IFTTT Event
+[insert_external]
+<div><p>IFTTT Event extension is installed</div></p>
+[insert_command]
+lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"IFTTT Event","boxcount":5,"boxname1":"ifttt_key","boxtype1":"string","boxname2":"event_name","boxtype2":"string","boxname3":"value1","boxtype3":"string","boxname4":"value2","boxtype4":"string","boxname5":"value3","boxtype5":"string",}');
+[insert_hook]
+case "IFTTTEvent":{
+LBIFTTT(LioranBoardJSON.ifttt_key,LioranBoardJSON.event_name,LioranBoardJSON.value1,LioranBoardJSON.value2,LioranBoardJSON.value3);
+}break
+[insert_script]
+function LBIFTTT(iftttkey, eventname, value1, value2, value3) {
+
+  const IFTTT = fetch("https://maker.ifttt.com/trigger/" + eventname + "/with/key/" + iftttkey + "?value1=" + value1 + "&value2=" + value2 + "&value3=" + value3,{
+    "method": "POST",
+  });
+
+  IFTTT.then(response => { 
+  return ((response.json()))
+  })
+  .then(data => {
+console.log(data)
+if (((data).search("Congratulations")) !== -1) {
+      lioranboardclient.send('{"type":"MESSAGE","topic":"AlertMessage","message":"IFTTT event has been fired!"}')
+    } else if (((data).search("invalid")) !== -1) {
+      lioranboardclient.send('{"type":"MESSAGE","topic":"AlertMessage","message":"Invalid IFTTT key, try resetting it."}')
+    }
+  
+  });
+[insert_over]
