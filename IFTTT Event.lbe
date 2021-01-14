@@ -25,7 +25,6 @@ if (((data).search("Congratulations")) !== -1) {
     } else if (((data).search("invalid")) !== -1) {
       lioranboardclient.send('{"type":"MESSAGE","topic":"AlertMessage","message":"Invalid IFTTT key, try resetting it."}')
     }
-  
   });
 }
 [insert_over]
