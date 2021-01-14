@@ -2,6 +2,10 @@
 IFTTT Event
 [insert_external]
 <div><p>IFTTT Event extension is installed</div></p>
+<!--
+ * @name: IFTTT Event, @version: 1.1, @author: Christinna#9031
+ * @link: https://github.com/christinna9031/LB-IFTTT-Events
+ * -->
 [insert_command]
 lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"IFTTT Event","boxcount":5,"boxname1":"ifttt_key","boxtype1":"string","boxname2":"event_name","boxtype2":"string","boxname3":"value1","boxtype3":"string","boxname4":"value2","boxtype4":"string","boxname5":"value3","boxtype5":"string",}');
 [insert_hook]
