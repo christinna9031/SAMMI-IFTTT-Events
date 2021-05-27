@@ -18,15 +18,14 @@ function LBIFTTT(iftttkey, eventname, value1, value2, value3, proxy) {
   let params={"mode":"no-cors", "method": "POST",}
   let url="https://maker.ifttt.com/trigger/"
   if (proxy=="enable"){
-  url="https://lioranboard-proxy.herokuapp.com/https://maker.ifttt.com/trigger/"  //feel free to use your own proxy server
+  url="https://cors.bridged.cc/https://maker.ifttt.com/trigger/"  //feel free to use your own proxy server
    params={"method": "POST"}
   }
   
     const IFTTT = fetch(url + eventname + "/with/key/" + iftttkey + "?value1=" + value1 + "&value2=" + value2 + "&value3=" + value3,
    params );
   
-    console.log(IFTTT)
-  
+ 
     IFTTT.then(response => { 
     if (proxy=="enable"){
     return response}
