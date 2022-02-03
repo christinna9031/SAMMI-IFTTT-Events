@@ -1,0 +1,58 @@
+[extension_name]
+IFTTT Event
+[extension_info]
+IFTTT Event
+[insert_external]
+<div><p>IFTTT Event extension is installed</div></p>
+<!--
+ * @name: IFTTT Event, @version: 1.2, @author: Christinna#9031
+ * @link: https://github.com/christinna9031/LB-IFTTT-Events
+ * -->
+[insert_command]
+LB.extCommand('IFTTT Event', 3355443, 52, {
+ifttt_key: ['ifttt_key', 14, ''],
+event_name: ['event_name', 14, ''],
+value1: ['value1', 14, ''],
+value2: ['value2', 14, ''],
+value3: ['value3', 14, ''],
+proxy: ['proxy', 19, '', null, ['Enable', 'Disable']],
+})
+[insert_hook]
+case "IFTTT Event":{
+  LBIFTTT(LioranBoardJSON.ifttt_key,LioranBoardJSON.event_name,LioranBoardJSON.value1,LioranBoardJSON.value2,LioranBoardJSON.value3,LioranBoardJSON.proxy);
+  }break
+[insert_script]
+function LBIFTTT(iftttkey, eventname, value1, value2, value3, proxy) {
+
+  let params={"mode":"no-cors", "method": "POST",}
+  let url="https://maker.ifttt.com/trigger/"
+  if (proxy=="enable"){
+  url="https://lioranboard-proxy.herokuapp.com/https://maker.ifttt.com/trigger/"  //feel free to use your own proxy server
+   params={"method": "POST"}
+  }
+  
+    const IFTTT = fetch(url + eventname + "/with/key/" + iftttkey + "?value1=" + value1 + "&value2=" + value2 + "&value3=" + value3,
+   params );
+  
+    console.log(IFTTT)
+  
+    IFTTT.then(response => { 
+    if (proxy=="enable"){
+    return response}
+    else {
+    return ("opaque")
+    }
+    })
+    .then(response => {
+  if (response=="opaque"){
+    LB.alert('IFTTT request has been sent.')
+  }
+  else if (response.status==200){
+    LB.alert('IFTTT request has been sent.')
+  }
+  else {
+    LB.alert('IFTTT request failed.')
+  }
+  });  
+  }
+[insert_over]
