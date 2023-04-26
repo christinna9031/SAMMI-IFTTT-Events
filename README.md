@@ -1,5 +1,5 @@
-# LioranBoard IFTTT Events
- Extension for LioranBoard which lets you fire IFTTT events.  
+# SAMMI IFTTT Events
+ Extension for SAMMI which lets you fire IFTTT events.  
 IFTTT is a very powerful app that connects to a lot of different services, such as your phone apps, smart devices, email, social media etc. Full list can be found here: https://ifttt.com/services. You can create 3 applets for free.  
 
 **Special thanks goes to [MisterK](twitch.tv/misterk_qc) for migrating the extension to LioranBoard 2.** 
